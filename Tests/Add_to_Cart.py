@@ -5,12 +5,12 @@ from src.Utils.commonFunc import CommFun
 from src.Utils.loggingTest import customlogs
 
 class TestCart(GroceryPage, CommFun):
+    log = customlogs().customLogger()
 
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
         self.CommonFun = CommFun(self.driver)
-        self.log = customlogs().customLogger()
 
     def itemSearch(self, value):
         self.CommonFun.sendkeysenter(value, self.searchItems())

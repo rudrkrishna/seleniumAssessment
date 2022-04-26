@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from src.Utils.loctors import HomePageLocators
 from src.Utils.commonFunc import CommFun
@@ -21,15 +23,15 @@ class HomePage(HomePageLocators):
 
     def verifyFailMessage(self):
         try:
-            WebElement = self.driver.find_element(By.XPATH, self.ERRORMESSAGE)
-            self.CommonFun.Fluentwait(WebElement)
+            WebElement = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.ERRORMESSAGE)))
             self.log.error("Login Failed")
-            return self.driver.find_element(self.ERRORMESSAGE).text
         except:
             print("Login Successful")
+            self.log.error("Login Successful")
 
     def GroceryOption(self):
-        return self.driver.find_element(By.XPATH, self.GROCERY)
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.GROCERY)))
+        return element
 
 
 

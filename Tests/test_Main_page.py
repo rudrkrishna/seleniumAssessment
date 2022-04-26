@@ -14,18 +14,11 @@ class Test_Execution_Class(BaseTest):
         uidriver.passwordEnter()
         uidriver.submit()
         uidriver.verifyMessage()
-        uidriver.pagewaitTime()
         uidriver.grocerystore()
-        uidriver.pagewaitTime()
-
-
-
-
 
     def test_addToCart(self):
 
         uidriver = TestCart(self.driver)
-
         uidriver.itemSearch("Bread")
         uidriver.addtocart1()
         uidriver.itemSearch("Milk")
