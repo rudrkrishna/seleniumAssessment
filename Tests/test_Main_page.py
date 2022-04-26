@@ -13,7 +13,8 @@ class Test_Execution_Class(BaseTest):
         uidriver.userName()
         uidriver.passwordEnter()
         uidriver.submit()
-        #uidriver.verifyMessage()
+        uidriver.verifyMessage()
+        uidriver.pagewaitTime()
         uidriver.grocerystore()
         uidriver.pagewaitTime()
 
@@ -24,6 +25,7 @@ class Test_Execution_Class(BaseTest):
     def test_addToCart(self):
 
         uidriver = TestCart(self.driver)
+
         uidriver.itemSearch("Bread")
         uidriver.addtocart1()
         uidriver.itemSearch("Milk")

@@ -20,9 +20,14 @@ class HomePage(HomePageLocators):
         return self.driver.find_element(By.XPATH, self.SUBMIT)
 
     def verifyFailMessage(self):
-        WebElement = self.driver.find_element(By.XPATH, self.ERRORMESSAGE)
-        self.CommonFun.Fluentwait(WebElement)
-        return self.driver.find_element(self.ERRORMESSAGE).text
+        try:
+            WebElement = self.driver.find_element(By.XPATH, self.ERRORMESSAGE)
+            self.CommonFun.Fluentwait(WebElement)
+            self.log.error("Login Failed")
+            return self.driver.find_element(self.ERRORMESSAGE).text
+        except:
+            print("Login Successful")
+
     def GroceryOption(self):
         return self.driver.find_element(By.XPATH, self.GROCERY)
 

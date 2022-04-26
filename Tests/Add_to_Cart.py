@@ -2,7 +2,7 @@ from selenium.webdriver import Keys
 
 from src.Pages.GroceryPage import GroceryPage
 from src.Utils.commonFunc import CommFun
-
+from src.Utils.loggingTest import customlogs
 
 class TestCart(GroceryPage, CommFun):
 
@@ -10,6 +10,7 @@ class TestCart(GroceryPage, CommFun):
         super().__init__(driver)
         self.driver = driver
         self.CommonFun = CommFun(self.driver)
+        self.log = customlogs().customLogger()
 
     def itemSearch(self, value):
         self.CommonFun.sendkeysenter(value, self.searchItems())
@@ -31,7 +32,9 @@ class TestCart(GroceryPage, CommFun):
 
     def cartVerify(self):
         if "Grocery" in self.CommonFun.verifyText(self.cartProductVerify()):
+            self.log.info("Items added in the cart are verified")
             print("Items added in the cart are verified")
         else:
+            self.log.warning("Items not added to the cart")
             raise Exception("Items not added to the cart")
 
