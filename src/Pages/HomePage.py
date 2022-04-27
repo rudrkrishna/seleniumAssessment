@@ -32,6 +32,9 @@ class HomePage(HomePageLocators):
     def GroceryOption(self):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.GROCERY)))
         return element
+    def GroceryPageVerify(self):
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.GROCERYLOGO)))
+        return element
 
 
 

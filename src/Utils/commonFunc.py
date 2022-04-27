@@ -11,12 +11,19 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from src.Utils.loggingTest import customlogs
+
 
 class CommFun:
 
+    # looger instance
+    log = customlogs().customLogger()
+
+    # paarameterized constructor
     def __init__(self, driver):
         self.driver = driver
 
+    # method to do click action
     def fun_click(self, WebElement):
         try:
             self.Fluentwait(WebElement)
@@ -24,9 +31,10 @@ class CommFun:
             return True
 
         except:
-            #self.log.info("Element is not clicked")
+            self.log.info("Element is not clicked")
             return False
 
+    # method to send data to a field
     def sendkeys(self, data, WebElement):
         try:
             self.Fluentwait(WebElement)
@@ -35,14 +43,16 @@ class CommFun:
             return True
 
         except:
-            #self.log.info("Value are not entered")
+            self.log.info("Value are not entered")
             return False
 
+    # method to find a webelement
     def findWebElement(self, locator):
 
         WebElement = self.driver.find_element(By.XPATH, locator)
         return True
 
+    # method implementing fluent wait
     def Fluentwait(self, WebElement):
 
         try:
@@ -52,9 +62,10 @@ class CommFun:
             webElement = wait.until(EC.presence_of_element_located(WebElement))
             return webElement
         except:
-            # self.log.info("Element is not present in the page")
+            self.log.info("Element is not present in the page")
             return False
 
+    # method to capture screenshot
     def capturescreenshot(self, resultMessage, TestCaseID):
         try:
             filename = TestCaseID + "_" + resultMessage + "_" + ".png"
@@ -63,27 +74,30 @@ class CommFun:
 
             return True
         except:
-            #self.log.info("Screenprint is not taken")
+            self.log.info("Screenprint is not taken")
             return False
 
+    # method for checkbox selection
     def CheckBoxSelection(self, WebElemet, value):
         try:
             checkBox = self.driver.find_element(By.XPATH, WebElemet)
             checkBox.click()
             return True
         except:
-            #self.log.info("CheckBox is not selected")
+            self.log.info("CheckBox is not selected")
             return False
 
+    # method for radio button selection
     def RadioButtonSelection(self, WebElemet, value):
         try:
             RadioButtonSelection = self.driver.find_element(By.XPATH, WebElemet)
             RadioButtonSelection.click()
             return True
         except:
-            #self.log.info("RadioButtonSelection is not selected")
+            self.log.info("RadioButtonSelection is not selected")
             return False
 
+    # method to perform click action by JavaScript
     def JSClick(self,WebElement):
         try:
             self.Fluentwait(WebElement)
@@ -95,16 +109,19 @@ class CommFun:
             #self.log.info("Element is not clicked")
             return False
 
+    # method for Page load Wait
     def pagewaitTime(self):
         self.driver.set_page_load_timeout(10)
 
-
+    # method to get element text
     def verifyText(self, webelement):
         return webelement.text
 
+    # method for implicit Wait
     def implicitwait(self):
         self.driver.implicitly_wait(10)
 
+    # method for sending keys and enter
     def sendkeysenter(self, data, WebElement):
         try:
             self.Fluentwait(WebElement)
@@ -113,6 +130,10 @@ class CommFun:
             return True
 
         except:
-            #self.log.info("Value are not entered")
+            self.log.info("Value are not entered")
             return False
 
+    # method to get page title
+    def getPageTitle(self):
+
+        return self.driver.title

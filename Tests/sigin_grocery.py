@@ -12,19 +12,20 @@ class TestSignInPage(HomePage, CommFun):
         self.CommonFun = CommFun(self.driver)
 
         self.exceldata = ExcelFileRead()
-
+    # Method to enter username
     def userName(self):
        self.CommonFun.sendkeys(self.exceldata.getvalue("username"), self.EnterUserName())
 
+    # Method to enter Password
     def passwordEnter(self):
         self.CommonFun.sendkeys(self.exceldata.getvalue("password"), self.EnterPassword())
 
+    # Method to click submit button
     def submit(self):
         self.CommonFun.JSClick(self.clickLoginButton())
         self.log.info("Login Attempted")
-        SS(self.driver).ScreenShot("HomePage.png")
 
-
+    # Method to verify Login Status
     def verifyMessage(self):
         try:
             print(self.verifyFailMessage())
@@ -33,9 +34,15 @@ class TestSignInPage(HomePage, CommFun):
             print("Login Successful")
             self.log.info("Login Successful")
 
+    # method to take screenshot and wait for grocery page to load
     def grocerystore(self):
+        SS(self.driver).ScreenShot("HomePage.png")
         self.CommonFun.fun_click(self.GroceryOption())
+        self.CommonFun.fun_click(self.GroceryPageVerify())
         SS(self.driver).ScreenShot("GroceryStore.png")
+
+
+
 
 
 

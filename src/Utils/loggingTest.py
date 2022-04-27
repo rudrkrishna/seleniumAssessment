@@ -1,5 +1,7 @@
 import inspect
 import logging
+import os
+
 
 class customlogs:
 
@@ -24,7 +26,7 @@ class customlogs:
         # 7.) Set the formatter to fileHandler
         fileHandler.setFormatter(formatter)
 
-        # 8.) Add file handler to logging
+        # 8.) Adding file handler to logging
         logger.addHandler(fileHandler)
-        #  9.) Finally return the logging object
+        #  9.) return the logging object
         return logger

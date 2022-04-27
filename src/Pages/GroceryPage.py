@@ -1,4 +1,7 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from src.Utils.loctors import GroceryStoreLocators
 
 
@@ -23,9 +26,11 @@ class GroceryPage(GroceryStoreLocators):
         return self.driver.find_element(By.XPATH, self.ITEM3)
 
     def cartbuttonclick(self):
-        return self.driver.find_element(By.XPATH, self.CART)
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.CART)))
+        return element
     def cartProductVerify(self):
-        return self.driver.find_element(By.XPATH, self.GROCERYCART)
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.GROCERYCART)))
+        return element
 
 
 
