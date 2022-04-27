@@ -4,7 +4,7 @@ import os
 
 
 class customlogs:
-
+    # method which return logger instance by setting all the functionalities required
     def customLogger(loglevel=logging.DEBUG):
 
         logName = inspect.stack()[1][3]

@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-# Object repository of Home page Locators
+# Object repository of Home page
 class HomePageLocators:
     EMAIL = '//div[contains(@class,"row")]//input[@type="text"]'
     PASSWORD = '//div[contains(@class,"row")]//input[@type="password"]'
@@ -11,7 +11,7 @@ class HomePageLocators:
     GROCERY = '//img[@alt="Grocery"]'
     GROCERYLOGO ='(//a[contains(@href, "GROCERY")])[1]'
 
-# Object repository of Grocery store page Locators
+# Object repository of Grocery store page
 class GroceryStoreLocators:
 
     SEARCH = '//input[contains(@title,"Search")]'
@@ -22,6 +22,7 @@ class GroceryStoreLocators:
     CART = '//span[text()="Cart"]'
     GROCERYCART = '//span[contains(text(),"Grocery Basket")]'
 
+# Object repository of search page
 class SearchPageLocators:
     HOME_PAGE = '//img[@title="Flipkart"]'
     SEARCH_ITEM = '//input[contains(@placeholder, "Search for products")]'
@@ -30,10 +31,11 @@ class SearchPageLocators:
     BRAND_VERIFY = '((((//input[@type = "checkbox"])[3]/following-sibling::div)[2]' \
                    '/../../../../../../../../../../../div)[2]//a)[4]'
 
+# Object repository of fashion page Locators
 class FashionPageLocators:
     FASHION_LINK = '//img[@alt="Fashion"]'
 
-
+# Object repository of profile page
 class ProfilePageLocators:
     MANAGE = '//a/div[contains(text(),"Manage Addresses")]'
     ADD_NEW_ADDRESS = '//div[contains(text(),"ADD A NEW ADDRESS")]'

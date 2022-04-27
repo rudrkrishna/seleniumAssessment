@@ -4,7 +4,7 @@ from selenium import webdriver
 
 from src.Utils.loggingTest import customlogs
 
-
+# class which have method to take screenshot
 class SS:
     log = customlogs().customLogger()
 

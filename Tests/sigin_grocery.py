@@ -4,9 +4,13 @@ from src.Pages.HomePage import HomePage
 from src.Utils.loggingTest import customlogs
 from src.Utils.ExcelFileRead import ExcelFileRead
 
-class TestSignInPage(HomePage, CommFun):
-    log = customlogs().customLogger()
 
+# class which have implementation methods of login and navigating to grocery store
+class TestSignInPage(HomePage, CommFun):
+
+    log = customlogs().customLogger() # logger instance
+
+    # parameterized constructor which accepts webdriver instance as input parameter
     def __init__(self, driver):
         self.driver = driver
         self.CommonFun = CommFun(self.driver)

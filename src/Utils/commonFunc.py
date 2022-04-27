@@ -1,19 +1,12 @@
-import logging
-import os
-import time
-
 from selenium.common.exceptions import ElementNotVisibleException, NoSuchElementException, \
     StaleElementReferenceException
 from selenium.webdriver import Keys
-from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
 from src.Utils.loggingTest import customlogs
 
-
+# class which have common functionality methods implementation
 class CommFun:
 
     # looger instance
@@ -137,5 +130,6 @@ class CommFun:
 
         return self.driver.title
 
+    # method which returns text of a webelement
     def gettext(self, WebElement):
         return WebElement.text

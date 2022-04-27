@@ -1,16 +1,19 @@
+import time
+
 from Tests.Add_to_Cart import TestCart
 from Tests.filter_besan import Test_filter
 from Tests.sigin_grocery import TestSignInPage
 from Tests.BaseTest import BaseTest
 from Tests.Address_manage import AddressTest
 
-
+# class where the execution starts
 class Test_Execution_Class(BaseTest):
 
     # webdriver setup
     baseTest = BaseTest()
     driver = baseTest.setUp()
 
+    # method which runs the login and navigating to grocery store test case
     def test_homepage(self):
         # Instance of SignInPage class
         uidriver = TestSignInPage(self.driver)
@@ -30,6 +33,7 @@ class Test_Execution_Class(BaseTest):
         # Entering the grocery store
         uidriver.grocerystore()
 
+    # method which runs the add to cart test case
     def test_addToCart(self):
 
         # Instance of SignInPage class
@@ -59,7 +63,7 @@ class Test_Execution_Class(BaseTest):
         # verifying the cart for added products
         uidriver.cartVerify()
 
-
+    # method which runs filter test case
     def test_Besan_filter(self):
 
         # Instance of SignInPage class
@@ -76,7 +80,7 @@ class Test_Execution_Class(BaseTest):
 
         # Verifies the filter
         uidriver.verifyFilter()
-
+    # method which runs the manage address test case
     def test_manageAddress(self):
 
         uidriver = AddressTest(self.driver)
@@ -87,6 +91,7 @@ class Test_Execution_Class(BaseTest):
         uidriver.saveAddress()
         uidriver.verifySavedAddress()
 
+     # method which runs logout functionality test case
     def test_logoutandquit(self):
         uidriver = AddressTest(self.driver)
         uidriver.logout()
