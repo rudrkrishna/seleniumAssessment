@@ -44,5 +44,6 @@ class ProfilePageLocators:
     ADDRESS = '//textarea[@name="addressLine1"]'
     ADDRESS_TYPE = '(//input[@name="locationTypeTag"]/../div)[1]'
     SAVE_BUTTON = '//button[text()="Save"]'
-
+    ADDRESS_VERIFY = '//span[contains(text(), "Manage Addresses")]/..//div//p/span[contains(text(),"Naruto Uzumaki")]'
+    LOGOUT = '//span[text()="Logout"]'
 

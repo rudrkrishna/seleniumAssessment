@@ -42,3 +42,10 @@ class ProfilePage(ProfilePageLocators):
     def saveAddr(self):
         element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.SAVE_BUTTON)))
         return element
+    def verifyAddress(self):
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.ADDRESS_VERIFY)))
+        return element
+
+    def logoutFlipkart(self):
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.LOGOUT)))
+        return element

@@ -39,6 +39,13 @@ class AddressTest(ProfilePage, CommFun):
         self.log.info("Address Saved Successfully")
 
     def verifySavedAddress(self):
-        print()
+        if str(self.exceldata.getvalue("name")) in self.gettext(self.verifyAddress()):
+            self.log.info("Added Address Verified Successfully")
+        else:
+            self.log.error("Added Address Not verified")
+
+    def logout(self):
+        self.CommonFun.fun_click(self.logoutFlipkart())
+        self.log.info("Logout Button Clicked")
 
 

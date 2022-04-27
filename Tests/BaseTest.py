@@ -25,6 +25,7 @@ class BaseTest:
 
     def tearDown(self):
         self.driver.close()
+        self.log.info("Driver Closed Successfully")
 
 
 

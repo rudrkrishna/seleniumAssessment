@@ -8,7 +8,8 @@ from Tests.Address_manage import AddressTest
 class Test_Execution_Class(BaseTest):
 
     # webdriver setup
-    driver = BaseTest().setUp()
+    baseTest = BaseTest()
+    driver = baseTest.setUp()
 
     def test_homepage(self):
         # Instance of SignInPage class
@@ -84,6 +85,14 @@ class Test_Execution_Class(BaseTest):
         uidriver.addNewAddr()
         uidriver.enterAddress()
         uidriver.saveAddress()
+        uidriver.verifySavedAddress()
+
+    def test_logoutandquit(self):
+        uidriver = AddressTest(self.driver)
+        uidriver.logout()
+        self.baseTest.tearDown()
+
+
 
 
 
