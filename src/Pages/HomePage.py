@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from src.Utils.Screenshot import SS
 from src.Utils.loctors import HomePageLocators
 from src.Utils.commonFunc import CommFun
 
@@ -13,21 +14,24 @@ class HomePage(HomePageLocators):
         self.CommonFun = CommFun(self.driver)
 
     def EnterUserName(self):
-        return self.driver.find_element(By.XPATH, self.EMAIL)
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.EMAIL)))
+        return element
 
     def EnterPassword(self):
-        return self.driver.find_element(By.XPATH, self.PASSWORD)
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.PASSWORD)))
+        return element
 
     def clickLoginButton(self):
-        return self.driver.find_element(By.XPATH, self.SUBMIT)
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.SUBMIT)))
+        return element
 
     def verifyFailMessage(self):
         try:
             WebElement = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.ERRORMESSAGE)))
             self.log.error("Login Failed")
+            SS(self.driver).ScreenShot("Loginfailed.png")
         except:
-            print("Login Successful")
-            self.log.error("Login Successful")
+            self.log.info("Login Successful")
 
     def GroceryOption(self):
         element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.GROCERY)))

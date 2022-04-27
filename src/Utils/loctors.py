@@ -22,4 +22,12 @@ class GroceryStoreLocators:
     CART = '//span[text()="Cart"]'
     GROCERYCART = '//span[contains(text(),"Grocery Basket")]'
 
+class SearchPageLocators:
+    HOME_PAGE = '//img[@title="Flipkart"]'
+    SEARCH_ITEM = '//input[contains(@placeholder, "Search for products")]'
+    BRAND_SELECT = '((//input[@type = "checkbox"])[3]/following-sibling::div)[1]'
+    BRAND_NAME = '((//input[@type = "checkbox"])[3]/following-sibling::div)[2]'
+    BRAND_VERIFY = '((((//input[@type = "checkbox"])[3]/following-sibling::div)[2]' \
+                   '/../../../../../../../../../../../div)[2]//a)[4]'
+
 

@@ -1,10 +1,12 @@
 from Tests.Add_to_Cart import TestCart
+from Tests.filter_besan import Test_filter
 from Tests.sigin_grocery import TestSignInPage
 from Tests.BaseTest import BaseTest
 
 
 class Test_Execution_Class(BaseTest):
-    #webdriver setup
+
+    # webdriver setup
     driver = BaseTest().setUp()
 
     def test_homepage(self):
@@ -32,19 +34,19 @@ class Test_Execution_Class(BaseTest):
         uidriver = TestCart(self.driver)
 
         # Searching for Braed in grocery
-        uidriver.itemSearch("Bread")
+        uidriver.itemSearch(uidriver.item1)
 
         # Adding one Bread item to cart
         uidriver.addtocart1()
 
         # Searching for Milk in grocery store
-        uidriver.itemSearch("Milk")
+        uidriver.itemSearch(uidriver.item2)
 
         # Adding one searched item to cart
         uidriver.addtocart1()
 
         # Searching for Item in grocery
-        uidriver.itemSearch("Jam")
+        uidriver.itemSearch(uidriver.item3)
 
         # Adding one searched item to cart
         uidriver.addtocart1()
@@ -52,7 +54,20 @@ class Test_Execution_Class(BaseTest):
         # Navigating to cart page
         uidriver.cartClick()
 
-        #verifying the cart for added products
+        # verifying the cart for added products
         uidriver.cartVerify()
+
+
+    def test_Besan_filter(self):
+
+        uidriver = Test_filter(self.driver)
+        uidriver.gotoHomePage()
+        uidriver.itemSearch(uidriver.searchData)
+        uidriver.setfilter()
+        uidriver.verifyFilter()
+
+
+
+
 
 

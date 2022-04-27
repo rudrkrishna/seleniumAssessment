@@ -10,8 +10,8 @@ class TestSignInPage(HomePage, CommFun):
     def __init__(self, driver):
         self.driver = driver
         self.CommonFun = CommFun(self.driver)
-
         self.exceldata = ExcelFileRead()
+
     # Method to enter username
     def userName(self):
        self.CommonFun.sendkeys(self.exceldata.getvalue("username"), self.EnterUserName())

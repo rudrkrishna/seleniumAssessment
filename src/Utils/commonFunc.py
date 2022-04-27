@@ -43,7 +43,7 @@ class CommFun:
             return True
 
         except:
-            self.log.info("Value are not entered")
+            self.log.info("Values are not entered")
             return False
 
     # method to find a webelement
@@ -62,7 +62,7 @@ class CommFun:
             webElement = wait.until(EC.presence_of_element_located(WebElement))
             return webElement
         except:
-            self.log.info("Element is not present in the page")
+            #self.log.info("Element is not present in the page")
             return False
 
     # method to capture screenshot
@@ -137,3 +137,6 @@ class CommFun:
     def getPageTitle(self):
 
         return self.driver.title
+
+    def gettext(self, WebElement):
+        return WebElement.text
