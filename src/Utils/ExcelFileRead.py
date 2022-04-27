@@ -3,9 +3,7 @@ import os
 import xlrd
 import openpyxl
 from openpyxl import load_workbook
-
-
-from Utilities.Constants import Constants
+from src.Utils.Constants import Constants
 class ExcelFileRead:
 
     const=Constants()

@@ -22,18 +22,17 @@ class TestCart(GroceryPage, CommFun):
 
 
     def itemSearch(self, value):
-        self.CommonFun.sendkeysenter(value, self.searchItems())
-        self.driver.set_page_load_timeout(10)
-        self.driver.implicitly_wait(10)
+        self.CommonFun.sendkeys(value, self.searchItems())
+        self.CommonFun.JSClick(self.searchButton())
 
     def addtocart1(self):
-        self.CommonFun.JSClick(self.add1stitem())
+        self.CommonFun.fun_click(self.add1stitem())
 
     def addtocart2(self):
-        self.CommonFun.JSClick(self.add1stitem())
+        self.CommonFun.fun_click(self.add1stitem())
 
     def addtocart3(self):
-        self.CommonFun.JSClick(self.add1stitem())
+        self.CommonFun.fun_click(self.add1stitem())
 
     def cartClick(self):
         self.CommonFun.JSClick(self.cartbuttonclick())

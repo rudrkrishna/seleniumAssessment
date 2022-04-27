@@ -25,6 +25,7 @@ class Test_filter(ProductFilter, CommFun):
         self.log.info("Filter Applied")
 
     def verifyFilter(self):
+
         brandname = self.CommonFun.gettext(self.getBrandName())
         brandresult = self.CommonFun.gettext(self.verifyProduct())
         if brandname in brandresult:

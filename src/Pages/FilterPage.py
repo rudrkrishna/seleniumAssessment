@@ -12,19 +12,19 @@ class ProductFilter(SearchPageLocators):
 
 
     def searchItems(self):
-        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.SEARCH_ITEM)))
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.SEARCH_ITEM)))
         return element
 
     def selectBrand(self):
-        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.BRAND_SELECT)))
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.BRAND_SELECT)))
         return element
 
     def getBrandName(self):
-        element = WebDriverWait(self.driver, 10).until(EC.staleness_of((By.XPATH, self.BRAND_NAME)))
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.BRAND_NAME)))
         return element
 
     def verifyProduct(self):
-        element = WebDriverWait(self.driver, 10).until(EC.staleness_of((By.XPATH, self.BRAND_VERIFY)))
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.BRAND_VERIFY)))
         return element
 
     def NavigateToHome(self):

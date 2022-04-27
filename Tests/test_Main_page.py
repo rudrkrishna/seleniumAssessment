@@ -60,10 +60,19 @@ class Test_Execution_Class(BaseTest):
 
     def test_Besan_filter(self):
 
+        # Instance of SignInPage class
         uidriver = Test_filter(self.driver)
+
+        # navigates to homepage
         uidriver.gotoHomePage()
+
+        # searches for item
         uidriver.itemSearch(uidriver.searchData)
+
+        # sets the filter
         uidriver.setfilter()
+
+        # Verifies the filter
         uidriver.verifyFilter()
 
 
