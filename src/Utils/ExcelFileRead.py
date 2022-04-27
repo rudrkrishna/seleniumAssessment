@@ -10,8 +10,8 @@ class ExcelFileRead:
 
     # method to get data from excel sheet
     def getvalue(self, value):
-        data_file = "/Users/rudrkrishna/PycharmProjects/seleniumAssessment/src/TestData/TestData.xlsx"
-        wb = load_workbook(data_file)
+        #data_file = "/Users/rudrkrishna/PycharmProjects/seleniumAssessment/src/TestData/TestData.xlsx"
+        wb = load_workbook(self.const.TestDateSheet_Path)
         ws = wb.get_sheet_by_name(self.const.sheet_TestData)
         all_rows = list(ws.rows)
         for row in all_rows:

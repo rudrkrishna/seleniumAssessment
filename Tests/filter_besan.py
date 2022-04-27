@@ -34,4 +34,5 @@ class Test_filter(ProductFilter, CommFun):
             self.log.error("Filter not working properly")
 
     def gotoHomePage(self):
+        self.driver.get("https://www.flipkart.com/")
         self.CommonFun.fun_click(self.NavigateToHome())

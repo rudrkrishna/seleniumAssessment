@@ -2,6 +2,7 @@ from Tests.Add_to_Cart import TestCart
 from Tests.filter_besan import Test_filter
 from Tests.sigin_grocery import TestSignInPage
 from Tests.BaseTest import BaseTest
+from Tests.Address_manage import AddressTest
 
 
 class Test_Execution_Class(BaseTest):
@@ -74,6 +75,15 @@ class Test_Execution_Class(BaseTest):
 
         # Verifies the filter
         uidriver.verifyFilter()
+
+    def test_manageAddress(self):
+
+        uidriver = AddressTest(self.driver)
+        uidriver.navigateToProfile()
+        uidriver.manageAddr()
+        uidriver.addNewAddr()
+        uidriver.enterAddress()
+        uidriver.saveAddress()
 
 
 

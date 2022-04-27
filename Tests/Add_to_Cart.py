@@ -35,6 +35,7 @@ class TestCart(GroceryPage, CommFun):
         self.CommonFun.fun_click(self.add1stitem())
 
     def cartClick(self):
+        self.CommonFun.sendkeys("", self.searchItems())
         self.CommonFun.JSClick(self.cartbuttonclick())
 
 

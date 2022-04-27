@@ -11,12 +11,12 @@ class GroceryPage(GroceryStoreLocators):
         self.driver = driver
 
     def searchItems(self):
-        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.SEARCH)))
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.SEARCH)))
         return element
 
 
     def searchButton(self):
-        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, self.SEARCHBUTTON)))
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.SEARCHBUTTON)))
         return element
 
 

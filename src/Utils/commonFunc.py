@@ -88,10 +88,9 @@ class CommFun:
             return False
 
     # method for radio button selection
-    def RadioButtonSelection(self, WebElemet, value):
+    def RadioButtonSelection(self, WebElemet):
         try:
-            RadioButtonSelection = self.driver.find_element(By.XPATH, WebElemet)
-            RadioButtonSelection.click()
+            WebElemet.click()
             return True
         except:
             self.log.info("RadioButtonSelection is not selected")

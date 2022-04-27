@@ -30,4 +30,19 @@ class SearchPageLocators:
     BRAND_VERIFY = '((((//input[@type = "checkbox"])[3]/following-sibling::div)[2]' \
                    '/../../../../../../../../../../../div)[2]//a)[4]'
 
+class FashionPageLocators:
+    FASHION_LINK = '//img[@alt="Fashion"]'
+
+
+class ProfilePageLocators:
+    MANAGE = '//a/div[contains(text(),"Manage Addresses")]'
+    ADD_NEW_ADDRESS = '//div[contains(text(),"ADD A NEW ADDRESS")]'
+    NAME = '//input[@name="name"]'
+    PHONE ='//input[@name="phone"]'
+    PINCODE = '//input[@name="pincode"]'
+    LOCALITY = '//input[@name="pincode"]/../following-sibling::div/input'
+    ADDRESS = '//textarea[@name="addressLine1"]'
+    ADDRESS_TYPE = '(//input[@name="locationTypeTag"]/../div)[1]'
+    SAVE_BUTTON = '//button[text()="Save"]'
+
 
